@@ -1,12 +1,13 @@
 import React from 'react'
-import NPC from './npc'
+import NPC from './NPC'
 import Input from './input'
 
 export default class Paxtonia extends React.Component { 
   render(){
     return (
     <div>
-      <NPC stats={this.props} output={this.state.currentOutput} />
+      I'm rendering
+      <NPC />
       <Input />
     </div>
   )

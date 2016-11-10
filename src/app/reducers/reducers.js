@@ -28,3 +28,13 @@ export function UserReducer(state=[], action) {
       return state
   }
 }
+
+export function gameIdReducer(state=null, action) {
+  switch (action.type) {
+    case 'SET_ID':
+      return action.payload
+    default:
+      return state
+  }
+}
+

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Input = (props) => (
 <div>
-  <textarea rows="2" cols="65" value={props.text} />
+  <textarea rows="2" cols="65"  />
 </div>
 ) 
 
