@@ -10,11 +10,9 @@ import { Provider } from 'react-redux'
 
 let store = createStore(PaxtoniaReducers, applyMiddleware(thunkMiddleware))
 
-let announce = setInterval(function() {
-  console.log(store.getState())}, 5000)
+const announce = () => console.log(store.getState())
 
-announce
-
+setInterval(announce, 7000)
 
 ReactDOM.render(
 <Provider store={store}>

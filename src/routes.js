@@ -1,9 +1,8 @@
 import React from 'react';
 import {Route, IndexRoute } from 'react-router';
 import App from './app/App'
-import Splash from './app/components/Splash'
-import Paxtonia from './app/components/Paxtonia'
-import Results from './app/components/Results'
+import SplashContainer from './app/components/containers/SplashContainer'
+import PaxtoniaContainer from './app/components/containers/PaxtoniaContainer'
 
 
 const wakeup = () => (
@@ -12,9 +11,8 @@ const wakeup = () => (
 
 export default (
   <Route path="/" onEnter={wakeup} component={App}>
-    <IndexRoute component={Splash}/>
-    <Route path="/game" component={Paxtonia} />
-    <Route path="/completed" component={Results} />
+    <IndexRoute component={SplashContainer}/>
+    <Route path="/game" component={PaxtoniaContainer} />
    </Route> 
 );
 

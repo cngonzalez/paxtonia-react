@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux'
-import { gameStateReducer, NPCReducer, UserReducer, gameIdReducer } from './reducers'
+import { responseReducer, gameReducer } from './reducers'
 
 const PaxtoniaReducers = combineReducers({
-  gameState: gameStateReducer,
-  NPCSaid: NPCReducer,
-  UserSaid: UserReducer,
-  gameId: gameIdReducer
+  responses: responseReducer,
+  game: gameReducer,
 })
 
 export default PaxtoniaReducers

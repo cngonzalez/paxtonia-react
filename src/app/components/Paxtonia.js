@@ -1,15 +1,16 @@
 import React from 'react'
 import NPC from './NPC'
-import Input from './input'
+import InputContainer from './containers/InputContainer'
 
-export default class Paxtonia extends React.Component { 
-  render(){
-    return (
+const Paxtonia = (props) => {
+  var npcs = props.responses.map((response) => <NPC response={response} />)
+  return (
     <div>
-      I'm rendering
-      <NPC />
-      <Input />
+      You are a { props.hero_rep } hero. 
+      { npcs }
+      <InputContainer />
     </div>
   )
-  }
 }
+
+export default Paxtonia
