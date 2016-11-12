@@ -8,8 +8,8 @@ const Paxtonia = (props) => {
     <div style={{opacity: props.opacity}} >
       You are a { props.hero_rep } hero. 
       { npcs }
-      <InputContainer />
-    </div>
+      <InputContainer inputVal={props.inputVal} game_id={props.game_id} />  
+  </div>
   )
 }
 

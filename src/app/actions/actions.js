@@ -5,6 +5,11 @@ export function storeGame(json) {
   }
 }
 
+export const trackInput = (text) => ({
+  type: 'TRACK_INPUT',
+  payload: text
+})
+
 export const requestGame = () => ({
   type: 'FETCH_GAME'
 })
@@ -17,15 +22,13 @@ export const createGame = () => (dispatch) => {
           .then((json) => dispatch(storeGame(json)))
 }
 
-
-export function TalkToNPC(text, id) {
-  var data = {game: {input: text}}
-  var req = new Request(`http://paxtonia-api.herokuapp.com/games/#{id}/talk`, {method: 'POST', params: JSON.stringify(data)})
-  return function(dispatch) {
-   fetch(req).then(response => response.json())
-    .then(response => response.json())
-    .then(json => addResponse(json))
-  }
+export const TalkToNPC = (text, id) => (dispatch) => {
+  var data = {'talk': {'input': text}}
+  var req = new Request(`http://paxtonia-api.herokuapp.com/games/${id}/talk`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)})
+  return (
+    fetch(req).then(response => response.json())
+    .then(json => dispatch(addResponse(json)))
+    )
 }
 
 export function addResponse(json) {

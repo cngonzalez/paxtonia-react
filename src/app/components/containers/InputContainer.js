@@ -1,20 +1,14 @@
 import { connect } from 'react-redux'
 import Input from '../input'
-import TalkToNPC from '../../actions/actions'
-
-const mapStateToProps = (state) => {
-  return {
-    gameId: state.game.id
-  }
-}
+import { TalkToNPC, trackInput } from '../../actions/actions'
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: (text) => dispatch(TalkToNPC(text, ownProps.gameId))
+    submitClick: () => dispatch(TalkToNPC(ownProps.inputVal, ownProps.game_id)),
+    trackChange: (val) => dispatch(trackInput(val))
   }
 }
 
-
-const InputContainer = connect(mapStateToProps, mapDispatchToProps)(Input)
+const InputContainer = connect(null, mapDispatchToProps)(Input)
 
 export default InputContainer
