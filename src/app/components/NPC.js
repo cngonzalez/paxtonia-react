@@ -1,8 +1,9 @@
 import React from 'react';
 
-const NPC = () => (
+const NPC = ({response}) => (
    <div>
-    I'm an NPC and I am rendering 
+     You say: {response.input}<br />
+     They say: {response.content}
   </div>
   )
 export default NPC

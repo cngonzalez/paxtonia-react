@@ -1,3 +1,5 @@
+const BASE_URL = 'http://localhost:3000'
+
 export function storeGame(json) {
   return {
     type: 'SET_GAME',
@@ -16,7 +18,7 @@ export const requestGame = () => ({
 
 export const createGame = () => (dispatch) => {
   dispatch(requestGame())
-  var url = 'http://paxtonia-api.herokuapp.com/newgame'
+  var url = `${BASE_URL}/newgame`
   return fetch(url)
           .then(response => response.json())
           .then((json) => dispatch(storeGame(json)))
@@ -24,7 +26,7 @@ export const createGame = () => (dispatch) => {
 
 export const TalkToNPC = (text, id) => (dispatch) => {
   var data = {'talk': {'input': text}}
-  var req = new Request(`http://paxtonia-api.herokuapp.com/games/${id}/talk`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)})
+  var req = new Request(`${BASE_URL}/games/${id}/talk`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)})
   return (
     fetch(req).then(response => response.json())
     .then(json => dispatch(addResponse(json)))
@@ -37,5 +39,4 @@ export function addResponse(json) {
     payload: json
   }
 }
-
 

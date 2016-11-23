@@ -1,3 +1,5 @@
+//change shape of state -- instead of array of responses, have array of npc objects who in turn have many responses. Status updates will be harder to display, and should perhaps instead be a status bar below the text field
+
 export function responseReducer(state=[], action) {
   switch (action.type) {
     case 'ADD_TO_CONVO':
